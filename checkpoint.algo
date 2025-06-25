@@ -1,0 +1,24 @@
+ALGORITHM three_nb_sum
+VAR
+    num1,num2,num3 : INTEGER;
+    sum : INTEGER := 0;
+BEGIN
+    REPEAT
+        Write("Enter a non-negative integer:");
+        Read(num1);
+    UNTIL (num1 >= 0);
+    REPEAT
+        Write("Enter a non-negative integer:");
+        Read(num2);
+    UNTIL (num2 >= 0);
+    REPEAT
+        Write("Enter a non-negative integer:");
+        Read(num3);
+    UNTIL (num3 >= 0);
+    sum := num1 + num2 + num3;
+    Write(sum);
+    IF sum > 100 THEN
+        Write("Sum is greater than 100");
+    ELSE
+        Write("Sum is less than or equal to 100");
+END
