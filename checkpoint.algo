@@ -1,24 +1,26 @@
-ALGORITHM three_nb_sum
-VAR
-    num1,num2,num3 : INTEGER;
-    sum : INTEGER := 0;
+/*At this checkpoint, you are asked to write an algorithm that reads a sentence, which ends with a point, character by character, and to determine:
+Instructions
+The length of the sentence (the number of characters).
+The number of words in the sentence (assuming that the words are separated by a single space).
+The number of vowels in the sentence.*/
+ALGORITHM checkpoint
+VAR 
+    phrase: STRING := '';
+    c: CHAR;
+    length, wordCount , vowelCount: INTEGER := 0;
 BEGIN
     REPEAT
-        Write("Enter a non-negative integer:");
-        Read(num1);
-    UNTIL (num1 >= 0);
-    REPEAT
-        Write("Enter a non-negative integer:");
-        Read(num2);
-    UNTIL (num2 >= 0);
-    REPEAT
-        Write("Enter a non-negative integer:");
-        Read(num3);
-    UNTIL (num3 >= 0);
-    sum := num1 + num2 + num3;
-    Write(sum);
-    IF sum > 100 THEN
-        Write("Sum is greater than 100");
-    ELSE
-        Write("Sum is less than or equal to 100");
-END
+        READ(c);
+        phrase := phrase + c;
+        IF c IN ['a', 'e', 'i', 'o', 'u, 'A', 'E', 'I', 'O', 'U'] THEN
+            vowelCount := vowelCount + 1;
+        ELSE IF c = ' ' THEN
+            wordCount := wordCount + 1;
+        END IF;
+        length := length + 1;
+    UNTIL (c = '.');
+    WRITE("the length of the sentence is: ", length -1); // -1 to exclude the point
+    WRITE("the number of words in the sentence is: ", wordCount + 1); /* +1 for the last word*/
+    WRITE("the number of vowels in the sentence is: ", vowelCount);
+    WRITE("the sentence is: ", phrase);
+END 
